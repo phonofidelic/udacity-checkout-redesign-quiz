@@ -16,9 +16,11 @@
 		<span class="company-name"> Cam's Company </span>
 		<span class="company-page">Checkout Page</span>
 	</header>
-	<section class="progress-bar">
-		Seems like this could be a good place for a progress bar...
-	</section>
+	<div class="progress">
+	  	<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+	    	<span class="sr-only">60% Complete</span>
+	  	</div>
+	</div>
 	<form class="input-form form-group" ng-controller="checkoutController">
 		<section class="order-review">
 			<h3>Your Order</h3>
@@ -68,7 +70,8 @@
 							   type="text"
 							   autocomplete="name"
 							   reqiured
-							   ng-model="name">
+							   ng-model="data.name"
+							   ng-blur="progressBar()">
 					</label>
 				</div>
 
@@ -80,7 +83,8 @@
 						   placeholder="20 Ingram Street"
 						   autocomplete="street-address"
 						   required
-						   ng-model="address">
+						   ng-model="data.address"
+						   ng-blur="progressBar()">
 				</label>
 
 				<section class="complete-address">
@@ -91,27 +95,30 @@
 							   class="field-city form-control"
 							   placeholder="Forest Hills"
 							   autocomplete="address-level2"
-							   ng-model="city">
+							   ng-model="data.city"
+							   ng-blur="progressBar()">
 					</label>
 
 					<label for="inp-state">State or Province
 						<input type="text"
 							   id-"inp-state"
-							   name="state"
+							   name="state or province"
 							   class="field-state form-control"
 							   placeholder="NY"
 							   autocomplete="address-level1"
-							   ng-model="state">
+							   ng-model="data.state"
+							   ng-blur="progressBar()">
 					</label>
 
 					<label for="inp-zip">Postal Code
 						<input type="number"
 							   id="inp-zip"
-							   name="zip"
+							   name="postal code"
 							   class="field-zip form-control"
 							   placeholder="11375"
 							   autocomplete="postal-code"
-							   ng-model="zip">
+							   ng-model="data.zip"
+							   ng-blur="progressBar()">
 					</label>
 
 					<label for="inp-country">Country
@@ -121,7 +128,8 @@
 							   class="field-country form-control"
 							   placeholder="US"
 							   autocomplete="country"
-							   ng-model="country">
+							   ng-model="data.country"
+							   ng-blur="progressBar()">
 					</label>
 				</section>
 
@@ -134,7 +142,8 @@
 						   placeholder="thwap@webmail.com"
 						   autocomplete="email"
 						   required
-						   ng-model="email">
+						   ng-model="data.email"
+						   ng-blur="progressBar()">
 				</label>
 
 				<label for="mailing-list-opt" class="mailing-option small-text">Put me on the mailing list?
@@ -149,31 +158,34 @@
 				<label for="cc-number">Credit Card Number
 					<input type="number"
 						   id="cc-number"
-						   name="cc-number"
+						   name="credit card number"
 						   class="form-control"
 						   autocomplete="cc-number"
 
-						   ng-model="ccNumber">
+						   ng-model="data.ccNumber"
+						   ng-blur="progressBar()">
 				</label>
 
 				<label for="cc-exp">Expiration Date
 					<input type="month"
 						   id="cc-exp"
-						   name="cc-expr"
+						   name="credit card expiration"
 						   class="form-control"
 						   placeholder="MM/YYYY"
 						   autocomplete="cc-exp"
 
-						   ng-model="ccExp">
+						   ng-model="data.ccExp"
+						   ng-blur="progressBar()">
 				</label>
 				<label for="cc-cvv">CVV
 					<input type="number"
 						   id="cc-cvv"
-						   name="cc-cvv"
+						   name="credit card CVV"
 						   class="form-control"
 						   placeholder="CVV"
 
-						   ng-model="ccCvv">
+						   ng-model="data.ccCvv"
+						   ng-blur="progressBar()">
 				</label>
 
 				<label class="small-text">Use different billing address?
@@ -188,9 +200,9 @@
 					<h3>Your Billing Address</h3>
 					<div class="field-name">
 						<label class="control-label" for="inp-bill-name">Name
-							<input name="inp-name"
+							<input name="billing name"
 								   id="inp-bill-name"
-								   class="form-control"
+								   class="form-control billing"
 								   placeholder="Peter Parker"
 								   type="text"
 
@@ -202,8 +214,8 @@
 					<label for="inp-bill-addr">Address
 						<input type="text"
 							   id="inp-bill-addr"
-							   name="inp-bill-addr"
-							   class="field-street form-control"
+							   name="billing addres"
+							   class="form-control billing"
 							   placeholder="20 Ingram Street"
 
 							   ng-model="billing.address">
@@ -213,8 +225,8 @@
 						<label for="inp-bill-city">City
 							<input type="text"
 								   id="inp-bill-city"
-								   name="inp-bill-city"
-								   class="field-city form-control"
+								   name="billing city"
+								   class="form-control billing"
 								   placeholder="Forest Hills"
 
 								   ng-model="billing.city">
@@ -223,8 +235,8 @@
 						<label for="inp-bill-state">State or Province
 							<input type="text"
 								   id-"inp-bill-state"
-								   name="inp-bill-state"
-								   class="field-state form-control"
+								   name="billing state or province"
+								   class="form-control billing"
 								   placeholder="NY"
 
 								   ng-model="billing.addrRegion">
@@ -233,8 +245,8 @@
 						<label for="inp-bill-zip">Postal Code
 							<input type="number"
 								   id="inp-bill-zip"
-								   name="inp-bill-zip"
-								   class="field-zip form-control"
+								   name="billing postal code"
+								   class="form-control billing"
 								   placeholder="11375"
 
 								   ng-model="billing.zip">
@@ -243,8 +255,8 @@
 						<label for="inp-bill-country">Country
 							<input type="text"
 								   id="inp-bill-country"
-								   name="inp-bill-country"
-								   class="field-country form-control"
+								   name="billing country"
+								   class="form-control billing"
 								   placeholder="US"
 
 								   ng-model="billing.country">
