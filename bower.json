@@ -1,0 +1,31 @@
+{
+  "name": "lesson3-bigForm-start",
+  "authors": [
+    "phonofidelic <chris_clemons85@hotmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.1.0",
+    "gold-elements": "PolymerElements/gold-elements#~1.0.1",
+    "iron-elements": "PolymerElements/iron-elements#~1.0.4",
+    "paper-progress": "PolymerElements/paper-progress#~1.0.7",
+    "paper-elements": "PolymerElements/paper-elements#~1.0.5",
+    "google-apis": "GoogleWebComponents/google-apis#~1.1.2",
+    "angular": "^1.5.6",
+    "bootstrap": "^3.3.6"
+  },
+  "resolutions": {
+    "jquery": "1.9.1 - 2"
+  }
+}

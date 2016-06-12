@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="checkoutApp">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Quiz - One Big, Beutiful Form</title>
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/myStyles.css">
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<header>
+		<span class="company-name"> Cam's Company </span>
+		<span class="company-page">Checkout Page</span>
+	</header>
+	<section class="progress-bar">
+		Seems like this could be a good place for a progress bar...
+	</section>
+	<form class="input-form form-group" ng-controller="checkoutController">
+		<section class="order-review">
+			<h3>Your Order</h3>
+			<div class="order-info">
+				<table class="your-order">
+					<tr class="headings">
+						<td>Product</td>
+						<td>Quantity</td>
+						<td>Price</td>
+						<td>Total</td>
+					</tr>
+					<tr>
+						<td>Game Console 2015</td>
+						<td>1</td>
+						<td>$500.00</td>
+						<td>$500.00</td>
+					</tr>
+					<tr>
+						<td>Platformer Bros 3D</td>
+						<td>1</td>
+						<td>$50.00</td>
+						<td>$50.00</td>
+					</tr>
+					<tr class="total">
+						<td>Total</td>
+						<td>$550.00</td>
+					</tr>
+				</table>
+				<label class="check-correct">Is your order correct?
+					<input type="checkbox" required>
+				</label>
+
+			</div>
+		</section>
+
+		<section class="form">
+			<h3>Your Contact Information</h3>
+			<div class="contact-info">
+
+
+				<div class="field-name">
+					<label class="control-label" for="inp-name">Name
+						<input name="inp-name"
+							   id="inp-name"
+							   class="form-control"
+							   placeholder="Peter Parker"
+							   type="text"
+							   autocomplete="name"
+							   reqiured
+							   ng-model="name">
+					</label>
+				</div>
+
+				<label for="inp-addr">Address
+					<input type="text"
+						   id="inp-addr"
+						   name="inp-addr"
+						   class="field-street form-control"
+						   placeholder="20 Ingram Street"
+						   autocomplete="street-address"
+						   required
+						   ng-model="address">
+				</label>
+
+				<section class="complete-address">
+					<label for="inp-city">City
+						<input type="text"
+							   id="inp-city"
+							   name="inp-city"
+							   class="field-city form-control"
+							   placeholder="Forest Hills"
+							   autocomplete="address-level2"
+							   ng-model="city">
+					</label>
+
+					<label for="inp-state">State or Province
+						<input type="text"
+							   id-"inp-state"
+							   name="inp-state"
+							   class="field-state form-control"
+							   placeholder="NY"
+							   autocomplete="address-level1"
+							   ng-model="state">
+					</label>
+
+					<label for="inp-zip">Postal Code
+						<input type="number"
+							   id="inp-zip"
+							   name="inp-zip"
+							   class="field-zip form-control"
+							   placeholder="11375"
+							   autocomplete="postal-code"
+							   ng-model="zip">
+					</label>
+
+					<label for="inp-country">Country
+						<input type="text"
+							   id="inp-country"
+							   name="inp-country"
+							   class="field-country form-control"
+							   placeholder="US"
+							   autocomplete="country"
+							   ng-model="country">
+					</label>
+				</section>
+
+				<label for="inp-email">Email Address
+					<input type="email"
+						   name="inp-email"
+						   id="inp-email"
+						   class="field-email form-control"
+						   type="text"
+						   placeholder="thwap@webmail.com"
+						   autocomplete="email"
+						   required
+						   ng-model="email">
+				</label>
+
+				<label for="mailing-list-opt" class="mailing-option small-text">Put me on the mailing list?
+					<input id="mailing-list-opt" class="inline" type="checkbox" ng-model="mailingList">
+				</label>
+			</div>
+
+			<h3>Your Credit Card Information</h3>
+			<div class="cc-warning"><em>Note: don't enter any actual credit card info!</em></div>
+
+			<div class="cc-info">
+				<label for="cc-number">Credit Card Number
+					<input type="number"
+						   id="cc-number"
+						   name="cc-number"
+						   class="form-control"
+						   autocomplete="cc-number"
+
+						   ng-model="ccNumber">
+				</label>
+
+				<label for="cc-exp">Expiration Date
+					<input type="month"
+						   id="cc-exp"
+						   name="cc-expr"
+						   class="form-control"
+						   placeholder="MM/YYYY"
+						   autocomplete="cc-exp"
+
+						   ng-model="ccExp">
+				</label>
+				<label for="cc-cvv">CVV
+					<input type="number"
+						   id="cc-cvv"
+						   name="cc-cvv"
+						   class="form-control"
+						   placeholder="CVV"
+
+						   ng-model="ccCvv">
+				</label>
+
+				<label class="small-text">Use different billing address?
+					<input id="billing-addr-check"
+						   name="billing-addr-check"
+						   type="checkbox"
+						   ng-model="billingAddrCheck">
+				</label>
+
+				<section class="billing-addr"
+						 ng-show="billingAddrCheck">
+					<h3>Your Billing Address</h3>
+					<div class="field-name">
+						<label class="control-label" for="inp-bill-name">Name
+							<input name="inp-name"
+								   id="inp-bill-name"
+								   class="form-control"
+								   placeholder="Peter Parker"
+								   type="text"
+
+								   reqiured
+								   ng-model="billing.name">
+						</label>
+					</div>
+
+					<label for="inp-bill-addr">Address
+						<input type="text"
+							   id="inp-bill-addr"
+							   name="inp-bill-addr"
+							   class="field-street form-control"
+							   placeholder="20 Ingram Street"
+
+							   ng-model="billing.address">
+					</label>
+
+					<section class="complete-address">
+						<label for="inp-bill-city">City
+							<input type="text"
+								   id="inp-bill-city"
+								   name="inp-bill-city"
+								   class="field-city form-control"
+								   placeholder="Forest Hills"
+
+								   ng-model="billing.city">
+						</label>
+
+						<label for="inp-bill-state">State or Province
+							<input type="text"
+								   id-"inp-bill-state"
+								   name="inp-bill-state"
+								   class="field-state form-control"
+								   placeholder="NY"
+
+								   ng-model="billing.addrRegion">
+						</label>
+
+						<label for="inp-bill-zip">Postal Code
+							<input type="number"
+								   id="inp-bill-zip"
+								   name="inp-bill-zip"
+								   class="field-zip form-control"
+								   placeholder="11375"
+
+								   ng-model="billing.zip">
+						</label>
+
+						<label for="inp-bill-country">Country
+							<input type="text"
+								   id="inp-bill-country"
+								   name="inp-bill-country"
+								   class="field-country form-control"
+								   placeholder="US"
+
+								   ng-model="billing.country">
+						</label>
+					</section>
+				</section>
+			</div>
+		</section>
+
+
+		<section class="submit-form">
+			<input id="submit" class="btn btn-default" type="submit" ng-click="checkValidation()">
+		</section>
+	</form>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+label {
+    font-size: .8em;
+}
+
+.small-text {
+    font-size: .5em;
+}
+
+section.complete-address {
+    padding: 0px;
+    margin: 0px;
+/*    visibility: hidden;
+    height: 0px;*/
+}
+
+.contact-info,
+.cc-info,
+.order-info,
+.submit-form {
+    padding: 10px;
+    border: 2px dashed #baefd2;
+    /*max-width: 400px;*/
+    border-radius: 5px;
+    margin-bottom: 50px;
+}
+
+.submit-form {
+    max-width: 720px;
+    display: block;
+    margin: 0 auto;
+}
+
+.order-review {
+    padding-top: 100px;
+}
+
+input:-webkit-autofill {
+    background-color: #baefd2 !important;
+}
+
