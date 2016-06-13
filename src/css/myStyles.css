@@ -1,5 +1,13 @@
+body {
+ background: #fafafa;
+}
+
 label {
     font-size: .8em;
+}
+
+input.form-control {
+    border-radius: 0px;
 }
 
 .small-text {
@@ -13,15 +21,33 @@ section.complete-address {
     height: 0px;*/
 }
 
+header {
+    background: #fff;
+}
+
+.progress {
+    background: red;
+}
+
+.progress-bar {
+    position: fixed;
+    margin-top: 50px;
+    width: 100%;
+    height: 20px;
+    background: #42A194;
+}
+
 .contact-info,
 .cc-info,
-.order-info,
-.submit-form {
+.order-info {
     padding: 10px;
-    border: 2px dashed #baefd2;
+    /*border: 2px dashed #B6C89B;*/
     /*max-width: 400px;*/
-    border-radius: 5px;
+    /*border-radius: 5px;*/
     margin-bottom: 50px;
+    background: #fff;
+    box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.2);
+    /*color: #302F2A;*/
 }
 
 .submit-form {
@@ -30,9 +56,21 @@ section.complete-address {
     margin: 0 auto;
 }
 
+input.btn {
+    border-radius: 0px;
+    /*background-color: green;*/
+    background-image: none;
+    width: 50;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
 .order-review {
     padding-top: 100px;
 }
+
+
 
 input:-webkit-autofill {
     background-color: #baefd2 !important;

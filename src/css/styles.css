@@ -1,5 +1,5 @@
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   margin: 0px 0px 10px 0px;
 }
 
@@ -78,7 +78,7 @@ label {
   margin-right: 20px;
 }
 
-.progress-bar {
+/*.progress-bar {
   position: fixed;
   margin-top: 50px;
   width: 100%;
@@ -87,7 +87,7 @@ label {
   font-size: 1.5em;
   font-style: italic;
   text-align: center;
-}
+}*/
 
 section.form, section.order-review{
   display: block;

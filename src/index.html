@@ -8,7 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/styles.css">
 	<link rel="stylesheet" href="css/myStyles.css">
-	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 </head>
 <body>
@@ -17,7 +17,12 @@
 		<span class="company-page">Checkout Page</span>
 	</header>
 	<div class="progress">
-	  	<div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+	  	<div class="progress-bar"
+	  		 role="progressbar"
+	  		 aria-valuenow="20"
+	  		 aria-valuemin="0"
+	  		 aria-valuemax="100"
+	  		 style="width: 0%;">
 	    	<span class="sr-only">60% Complete</span>
 	  	</div>
 	</div>
@@ -61,7 +66,7 @@
 			<div class="contact-info">
 
 
-				<div class="field-name">
+				<div ng-class="{'has-success': data.name.status}">
 					<label class="control-label" for="inp-name">Name
 						<input name="name"
 							   id="inp-name"
@@ -71,7 +76,8 @@
 							   autocomplete="name"
 							   reqiured
 							   ng-model="data.name"
-							   ng-blur="progressBar()">
+							   ng-blur="progressBar()"
+							   ng-change="inputFeedback(this)">
 					</label>
 				</div>
 
