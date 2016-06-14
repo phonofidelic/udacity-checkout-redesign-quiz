@@ -165,7 +165,7 @@
 						   name="credit card number"
 						   class="form-control"
 						   autocomplete="cc-number"
-
+						   required
 						   ng-model="data.ccNumber"
 						   ng-blur="progressBar()">
 				</label>
@@ -177,7 +177,7 @@
 						   class="form-control"
 						   placeholder="MM/YYYY"
 						   autocomplete="cc-exp"
-
+						   required
 						   ng-model="data.ccExp"
 						   ng-blur="progressBar()">
 				</label>
@@ -187,7 +187,7 @@
 						   name="credit card CVV"
 						   class="form-control"
 						   placeholder="CVV"
-
+						   required
 						   ng-model="data.ccCvv"
 						   ng-blur="progressBar()">
 				</label>
