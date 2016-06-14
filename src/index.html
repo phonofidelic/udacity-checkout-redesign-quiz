@@ -10,10 +10,12 @@
 	<link rel="stylesheet" href="css/myStyles.css">
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js" asynch></script>
+	<script type="text/javascript" src="../bower_components/angular-animate/angular-animate.js" asynch></script>
 </head>
 <body>
 	<header>
-		<span class="company-name"> Cam's Company </span>
+		<span class="company-name">Cam's Company</span>
 		<span class="company-page">Checkout Page</span>
 	</header>
 	<div class="progress">
@@ -30,43 +32,39 @@
 		<section class="order-review">
 			<h3>Your Order</h3>
 			<div class="order-info">
-				<table class="your-order">
-					<tr class="headings">
-						<td>Product</td>
-						<td>Quantity</td>
-						<td>Price</td>
-						<td>Total</td>
-					</tr>
-					<tr>
-						<td>Game Console 2015</td>
-						<td>1</td>
-						<td>$500.00</td>
-						<td>$500.00</td>
-					</tr>
-					<tr>
-						<td>Platformer Bros 3D</td>
-						<td>1</td>
-						<td>$50.00</td>
-						<td>$50.00</td>
-					</tr>
-					<tr class="total">
-						<td>Total</td>
-						<td>$550.00</td>
-					</tr>
-				</table>
-				<label class="check-correct">Is your order correct?
-					<input type="checkbox" required>
-				</label>
 
+				<div class="row" ng-repeat="item in order">
+					<div class="col-sm-4">
+						<div class="order-item order-item-name">{{item.name}}</div>
+						<div class="order-item order-item-img"><img src="{{item.imgUrl}}"></div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="order-item-quantity">quantity: {{item.quantity}}</div>
+					</div>
+
+					<div class="col-sm-4">
+						<div class="order-item-price">price: {{'$'+item.price}}</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4 order-total"></div>
+					<div class="col-sm-4 order-total"></div>
+					<div class="col-sm-4 order-total">total: {{'$'+computeTotal()}}</div>
+				</div>
+
+				<label class="check-correct">Is your order correct?
+					<input type="checkbox" required ng-model="orderCorrect" ng-click="open = !open">
+				</label>
 			</div>
 		</section>
 
-		<section class="form">
+		<section class="form slide" ng-show="orderCorrect">
 			<h3>Your Contact Information</h3>
 			<div class="contact-info">
 
 
-				<div ng-class="{'has-success': data.name.status}">
+				<div ng-class="{'data.name.status': data.name.value}">
 					<label class="control-label" for="inp-name">Name
 						<input name="name"
 							   id="inp-name"
@@ -74,8 +72,8 @@
 							   placeholder="Peter Parker"
 							   type="text"
 							   autocomplete="name"
-							   reqiured
-							   ng-model="data.name"
+							   required
+							   ng-model="data.name.value"
 							   ng-blur="progressBar()"
 							   ng-change="inputFeedback(this)">
 					</label>
@@ -277,7 +275,8 @@
 			<input id="submit" class="btn btn-default" type="submit" ng-click="checkValidation()">
 		</section>
 	</form>
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js"></script>
+
+
 	<script type="text/javascript" src="js/app.js"></script>
 </body>
 </html>

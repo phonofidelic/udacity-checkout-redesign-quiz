@@ -7,6 +7,29 @@ app.controller('checkoutController', ['$scope', 'IssueTracker', function($scope,
     $scope.billing = {};
     var inputArr = [];
 
+    // hard-coded order info:
+    $scope.order = [
+        {
+            name: 'item 1',
+            quantity: 1,
+            price: 50.00,
+            imgUrl: 'http://placehold.it/100x80'
+        },
+                {
+            name: 'item 2',
+            quantity: 1,
+            price: 150.00,
+            imgUrl: 'http://placehold.it/100x80'
+        }
+    ];
+    $scope.computeTotal = function(){
+        var total = 0;
+        for (var i = 0; i < $scope.order.length; i++) {
+            total += $scope.order[i].price;
+        }
+        return total;
+    }
+
     var issueTracker = new IssueTracker();
 
     $scope.checkValidation = function() {
@@ -54,7 +77,7 @@ app.controller('checkoutController', ['$scope', 'IssueTracker', function($scope,
 
     $scope.progressBar = function() {
         var progress = 0;
-        if (Object.keys($scope.data)) {
+        if (data.name) {
             Object.keys($scope.data).forEach(function() {
                 progress += 10;
                 $('.progress-bar')
@@ -65,13 +88,16 @@ app.controller('checkoutController', ['$scope', 'IssueTracker', function($scope,
         console.log('progress: ', progress);
     };
 
-    $scope.inputFeedback = function(node) {
-        console.log('test: ', node.data.status);
-        // for (input in data) {
-        //     if (input.status) {
-        //         return $('/* divNode */').addClass()
-        //     }
-        // }
+    $scope.inputFeedback = function() {
+
+        this.checkValidation();
+        console.log('test: ', inputArr);
+        for (input in data) {
+            if (input.name.status) {
+                console.log('hello');
+                // return $('/* divNode */').addClass()
+            }
+        }
     }
 }]);
 
@@ -82,6 +108,7 @@ app.factory('IssueTracker', function() {
     };
     IssueTracker.prototype = {
         add: function(issue) {
+
             this.issues.push(issue);
         },
         retrieve: function() {
@@ -102,3 +129,11 @@ app.factory('IssueTracker', function() {
     return IssueTracker;
 });
 
+app.animation('.form', [function() {
+    return {
+        enter: function(element, doneFn) {
+            $(element).slideDown(400, doneFn);
+            console.log('slide');
+        }
+    }
+}]);
