@@ -11,13 +11,15 @@ var concat = require('gulp-concat');
 gulp.task('compress-js', function() {
     return gulp.src('src/js/*.js')
         // .pipe(uglify())
-        .pipe(gulp.dest('dest/js'));
+        .pipe(gulp.dest('dest/js'))
+        .pipe(gulp.dest('./js'));
 });
 
 gulp.task('minify-css', function() {
     return gulp.src('src/css/*.css')
         .pipe(minifyCss())
         .pipe(gulp.dest('dest/css'))
+        .pipe(gulp.dest('./css'));
 });
 
 gulp.task('compress-index', function() {
@@ -25,7 +27,8 @@ gulp.task('compress-index', function() {
         .pipe(concat('index.html'))
         .pipe(minifyInline())
         .pipe(minifyHTML())
-        .pipe(gulp.dest('dest/'));
+        .pipe(gulp.dest('dest/'))
+        .pipe(gulp.dest('./'));
 });
 
 gulp.task('default', ['compress-index', 'compress-js', 'minify-css']);
